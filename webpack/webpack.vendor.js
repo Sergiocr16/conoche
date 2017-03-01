@@ -1,8 +1,9 @@
 var webpack = require('webpack');
+const {BASE_WEB_URL} = require('./webpack.constants.js');
 module.exports = {
     entry: {
         'vendor': [
-            './src/main/webapp/app/vendor',
+            BASE_WEB_URL + 'app/vendor',
             '@angular/common',
             '@angular/compiler',
             '@angular/core',

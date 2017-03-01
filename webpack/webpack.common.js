@@ -5,6 +5,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const StringReplacePlugin = require('string-replace-webpack-plugin');
 const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin');
 const path = require('path');
+const {BASE_WEB_URL} = require('./webpack.constants.js');
 
 module.exports = function (options) {
     const DATAS = {
@@ -13,9 +14,9 @@ module.exports = function (options) {
     };
     return {
         entry: {
-            'polyfills': './src/main/webapp/app/polyfills',
-            'global': './src/main/webapp/content/css/global.css',
-            'main': './src/main/webapp/app/app.main'
+            'polyfills': BASE_WEB_URL + 'app/polyfills',
+            'global': BASE_WEB_URL + 'content/css/global.css',
+            'main': BASE_WEB_URL + 'app/app.main'
         },
         resolve: {
             extensions: ['.ts', '.js'],
@@ -35,7 +36,7 @@ module.exports = function (options) {
                 {
                     test: /\.html$/,
                     loader: 'raw-loader',
-                    exclude: ['./src/main/webapp/index.html']
+                    exclude: [BASE_WEB_URL + 'index.html']
                 },
                 {
                     test: /\.css$/,
@@ -85,17 +86,17 @@ module.exports = function (options) {
             }),
             new CopyWebpackPlugin([
                 { from: './node_modules/swagger-ui/dist', to: 'swagger-ui/dist' },
-                { from: './src/main/webapp/swagger-ui/', to: 'swagger-ui' },
-                { from: './src/main/webapp/favicon.ico', to: 'favicon.ico' },
-                { from: './src/main/webapp/robots.txt', to: 'robots.txt' },
-                { from: './src/main/webapp/i18n', to: 'i18n' }
+                { from: BASE_WEB_URL + 'swagger-ui/', to: 'swagger-ui' },
+                { from: BASE_WEB_URL + 'favicon.ico', to: 'favicon.ico' },
+                { from: BASE_WEB_URL + 'robots.txt', to: 'robots.txt' },
+                { from: BASE_WEB_URL + 'i18n', to: 'i18n' }
             ]),
             new webpack.ProvidePlugin({
                 $: "jquery",
                 jQuery: "jquery"
             }),
             new HtmlWebpackPlugin({
-                template: './src/main/webapp/index.html',
+                template: BASE_WEB_URL + 'index.html',
                 chunksSortMode: 'dependency',
                 inject: 'body'
             }),

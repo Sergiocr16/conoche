@@ -16,7 +16,7 @@
         ]
     },
     "include": [
-        "src/main/webapp/app",
+        "src/main/webappconoche/app",
         "src/test/javascript"
     ]
 }

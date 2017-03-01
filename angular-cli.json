@@ -22,7 +22,27 @@
       ],
       "scripts": [],
       "environments": {}
-    }
+    },
+
+      {
+          "root": "src/main/webappconoche/",
+          "outDir": "target/www/app",
+          "assets": [
+              "content",
+              "favicon.ico"
+          ],
+          "index": "index.html",
+          "main": "app/app.main.ts",
+          "test": "",
+          "tsconfig": "../../../tsconfig.json",
+          "prefix": "jhi",
+          "mobile": false,
+          "styles": [
+              "content/css/main.css"
+          ],
+          "scripts": [],
+          "environments": {}
+      }
   ],
   "addons": [],
   "packages": [],

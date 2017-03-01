@@ -88,8 +88,8 @@
     "node": ">=6.9.0"
   },
   "scripts": {
-    "lint": "tslint 'src/main/webapp/app/**/*.ts' --force",
-    "lint:fix": "tslint 'src/main/webapp/app/**/*.ts' --fix --force",
+    "lint": "tslint 'src/main/webappconoche/app/**/*.ts' --force",
+    "lint:fix": "tslint 'src/main/webappconoche/app/**/*.ts' --fix --force",
     "tsc": "tsc",
     "tsc:w": "tsc -w",
     "start": "npm run webpack:dev",
